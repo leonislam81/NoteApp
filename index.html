@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Notes App</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1034%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(173%2c 173%2c 173%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c659.649C123.419%2c678.257%2c255.871%2c624.995%2c346.522%2c539.199C432.326%2c457.991%2c422.874%2c322.979%2c470.131%2c214.702C516.302%2c108.915%2c631.695%2c25.651%2c620.812%2c-89.259C609.911%2c-204.361%2c511.464%2c-295.436%2c415.683%2c-360.192C331.677%2c-416.987%2c223.432%2c-401.571%2c124.696%2c-424.675C32.92%2c-446.15%2c-50.293%2c-498.908%2c-144.233%2c-491.211C-250.587%2c-482.496%2c-362.398%2c-454.964%2c-436.986%2c-378.651C-512.996%2c-300.883%2c-535.708%2c-186.819%2c-547.414%2c-78.706C-558.825%2c26.676%2c-550.37%2c134.895%2c-502.852%2c229.645C-456.277%2c322.513%2c-364.261%2c376.416%2c-285.301%2c443.937C-192.817%2c523.023%2c-120.328%2c641.507%2c0%2c659.649' fill='%23989898'%3e%3c/path%3e%3cpath d='M1440 1242.094C1564.79 1263.7060000000001 1673.466 1157.406 1777.688 1085.452 1878.824 1015.629 1986.7939999999999 944.7629999999999 2034.637 831.5609999999999 2081.9539999999997 719.6030000000001 2048.607 595.2 2035.9740000000002 474.312 2022.812 348.356 2048.154 200.25799999999998 1959.242 110.07499999999999 1870.336 19.898000000000025 1722.441 37.51400000000001 1596.15 28.201999999999998 1492.851 20.585000000000036 1392.965 32.16700000000003 1293.476 60.985000000000014 1193.656 89.899 1091.9769999999999 121.195 1019.154 195.33499999999998 943.8779999999999 271.972 912.527 376.76 882.115 479.788 847.146 598.253 767.583 731.888 829.169 838.957 891.747 947.751 1065.202 911.0699999999999 1169.952 980.203 1276.771 1050.702 1313.891 1220.254 1440 1242.094' fill='%23c2c2c2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1034'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+      }
+      .card {
+        background-color: azure;
+      }
+    </style>
+  </head>
+
+  <body class="">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Notes</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="mr-auto navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+        <form class="my-2 form-inline my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            id="searchTxt"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="my-2 btn btn-outline-success my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container my-3">
+      <h1 class="mb-4 text-white text-bold">Welcome To Magic Notes</h1>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Add a note</h5>
+          <div class="form-group">
+            <textarea class="form-control" id="addTxt" rows="3"></textarea>
+          </div>
+          <button class="btn btn-primary" id="addBtn">Add Note</button>
+        </div>
+      </div>
+      <hr />
+      <h1 class="text-white">Your Notes</h1>
+      <hr />
+      <div id="notes" class="row container-fluid"></div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
